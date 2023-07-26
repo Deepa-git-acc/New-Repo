@@ -36,7 +36,7 @@ jobs:
       with:
         image: dockerhubpractice/spring-boot-application
         tags: latest
-        registry: docker.io
+        #registry: docker.io
         dockerfile: Dockerfile
         username: dockerhubpractice
         password: 1511@Shiv   
