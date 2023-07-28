@@ -31,11 +31,9 @@ jobs:
      # run: mvn -B package --file pom.xml
       run: mvn clean install
 
-jobs:
-  build:
-
+  notify:
+    needs: build
     runs-on: self-hosted
-
     steps:
     - name: Build & push Docker image
       uses: mr-smithers-excellent/docker-build-push@v6
