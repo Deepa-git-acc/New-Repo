@@ -55,7 +55,9 @@ jobs:
        # registry: docker.io
         dockerfile: Dockerfile
        # username: dockerhubpractice
-       # password: 1511@Shiv   
+       # password: 1511@Shiv  
+       
+    - name: push docker image
       run:
          docker push 691078088892.dkr.ecr.us-east-1.amazonaws.com/viavisa:latest
 
