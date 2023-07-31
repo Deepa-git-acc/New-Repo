@@ -17,7 +17,8 @@ on:
 jobs:
   build:
 
-    runs-on: ubuntu-latest
+    #runs-on: ubuntu-latest
+    runs-on: self-hosted
 
     steps:
     - uses: actions/checkout@v3
@@ -36,15 +37,25 @@ jobs:
     needs: build
     runs-on: self-hosted
     steps:
-    - name: Build & push Docker image
-      uses: mr-smithers-excellent/docker-build-push@v6
+    - name: Configure AWS credentials
+      uses: aws-actions/configure-aws-credentials@v1
+      with: 
+       aws-access-key-id: AKIA2BZ3WZC6MLGCUFEX 
+       aws-secret-access-key: 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
+       aws-region: us-east-1
+    
+    - name: Login to Amazon ECR
+      id: login-ecr
+      uses: aws-actions/amazon-ecr-login@v1
+      env: 
+        AWS_ECR_REPO_URL: 691078088892.dkr.ecr.us-east-1.amazonaws.com
       with:
-        image: dockerhubpractice/spring-boot-application
+        image: viavisa
         tags: latest
-        registry: docker.io
+       # registry: docker.io
         dockerfile: Dockerfile
-        username: dockerhubpractice
-        password: 1511@Shiv   
+       # username: dockerhubpractice
+       # password: 1511@Shiv   
 
     # Optional: Uploads the full dependency graph to GitHub to improve the quality of Dependabot alerts this repository can receive
     #- name: Update dependency graph
