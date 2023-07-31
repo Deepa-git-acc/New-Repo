@@ -31,7 +31,8 @@ jobs:
      # run: mvn -B package --file pom.xml
       run: mvn clean install
 
-  notify:
+ # notify:
+  deploy:
     needs: build
     runs-on: self-hosted
     steps:
