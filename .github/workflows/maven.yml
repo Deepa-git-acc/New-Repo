@@ -58,9 +58,9 @@ jobs:
        # password: 1511@Shiv  
        
     - name: push docker image
-      run:
-         aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 691078088892.dkr.ecr.us-east-1.amazonaws.com
-         docker push 691078088892.dkr.ecr.us-east-1.amazonaws.com/viavisa:latest
+      uses: aws-actions/amazon-ecr-push@v1    
+      run :
+       docker push 691078088892.dkr.ecr.us-east-1.amazonaws.com/viavisa:latest
 
     # Optional: Uploads the full dependency graph to GitHub to improve the quality of Dependabot alerts this repository can receive
     #- name: Update dependency graph
