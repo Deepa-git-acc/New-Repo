@@ -54,7 +54,7 @@ jobs:
  # notify:
   deploy:
     needs: build
-    runs-on: self-hosted
+    runs-on: [self-hosted, server1]
     steps:
     - name: Configure AWS credentials
       uses: aws-actions/configure-aws-credentials@v1
@@ -68,6 +68,10 @@ jobs:
        aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 691078088892.dkr.ecr.us-east-1.amazonaws.com
        docker pull 691078088892.dkr.ecr.us-east-1.amazonaws.com/viavisa:latest 
        docker run -it -d -p 8080:8080 691078088892.dkr.ecr.us-east-1.amazonaws.com/viavisa
+env:
+          accountid: ${{ secrets.ACCOUNTID}}
+          region: ${{ secrets.REGION }}
+          ecr_repository: ${{ secrets.ECR_REPOSITORY }}
 
 
       
