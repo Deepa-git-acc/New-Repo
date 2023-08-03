@@ -49,7 +49,8 @@ jobs:
           #aws ecr get-login-password --region ${region}  | docker login --username AWS --password-stdin ${accountid}.dkr.ecr.${region}.amazonaws.com
           aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 691078088892.dkr.ecr.us-east-1.amazonaws.com
           #docker build --tag ${accountid}.dkr.ecr.${region}.amazonaws.com/${ecr_repository}:v1.${GITHUB_RUN_NUMBER} .
-          docker build --tag viavisa:latest 691078088892.dkr.ecr.us-east-1.amazonaws.com/viavisa:latest .
+          pwd
+          docker build --tag 691078088892.dkr.ecr.us-east-1.amazonaws.com/viavisa:latest .
           docker images
           #docker push ${accountid}.dkr.ecr.${region}.amazonaws.com/${ecr_repository}:v1.${GITHUB_RUN_NUMBER}    
    
