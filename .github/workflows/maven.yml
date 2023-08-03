@@ -51,9 +51,11 @@ jobs:
           #docker push ${accountid}.dkr.ecr.${region}.amazonaws.com/${ecr_repository}:v1.${GITHUB_RUN_NUMBER}  
           docker push 691078088892.dkr.ecr.us-east-1.amazonaws.com/viavisa:latest  
 
+ # notify:
   deploy:
     needs: build
     runs-on: self-hosted
+    steps:
     - name: Configure AWS credentials
       uses: aws-actions/configure-aws-credentials@v1
       with: 
