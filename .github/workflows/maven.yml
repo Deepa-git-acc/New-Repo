@@ -48,7 +48,8 @@ jobs:
           pwd
           docker build --tag 691078088892.dkr.ecr.us-east-1.amazonaws.com/viavisa:latest .
           docker images
-          #docker push ${accountid}.dkr.ecr.${region}.amazonaws.com/${ecr_repository}:v1.${GITHUB_RUN_NUMBER}    
+          #docker push ${accountid}.dkr.ecr.${region}.amazonaws.com/${ecr_repository}:v1.${GITHUB_RUN_NUMBER}  
+          docker push 691078088892.dkr.ecr.us-east-1.amazonaws.com/viavisa:latest  
    
 
 
