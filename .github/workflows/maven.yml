@@ -63,7 +63,7 @@ jobs:
        aws-secret-access-key: WpVnUSDwjxznOVsBsvmswjSFyfjsBnPd5E7rWSE8
        aws-region: us-east-1
        
-    - name: pull docker imahge and congtainer
+    - name: pull docker image and container
       run: |
        aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 691078088892.dkr.ecr.us-east-1.amazonaws.com
        docker pull 691078088892.dkr.ecr.us-east-1.amazonaws.com/viavisa:latest 
