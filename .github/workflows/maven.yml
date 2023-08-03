@@ -43,7 +43,14 @@ jobs:
        aws-access-key-id: AKIA2BZ3WZC6MLGCUFEX 
        aws-secret-access-key: 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
        aws-region: us-east-1
-    
+    - name: Push to ECR
+      id: tag
+      run: |
+          #aws ecr get-login-password --region ${region}  | docker login --username AWS --password-stdin ${accountid}.dkr.ecr.${region}.amazonaws.com
+          aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 691078088892.dkr.ecr.us-east-1.amazonaws.com
+          #docker build --tag ${accountid}.dkr.ecr.${region}.amazonaws.com/${ecr_repository}:v1.${GITHUB_RUN_NUMBER} .
+
+          #docker push ${accountid}.dkr.ecr.${region}.amazonaws.com/${ecr_repository}:v1.${GITHUB_RUN_NUMBER}    
    
 
 
